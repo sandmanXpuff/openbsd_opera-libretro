@@ -57,7 +57,7 @@ ifneq (,$(findstring unix,$(platform)))
     ifneq ($(findstring SunOS,$(shell uname -s)),)
         SHARED := -shared -lpthread -lm -z defs
     else
-        SHARED := -lpthread -lm -shared -Wl,--no-undefined -Wl,--version-script=link.T
+        SHARED := -lpthread -lm -shared -Wl,--no-undefined -Wl,--version-script=link.T -lc
         ifneq ($(findstring Linux,$(shell uname -s)),)
             HAVE_CDROM = 1
         endif
